@@ -83,9 +83,3 @@ function playMelody(key=0) {
     const tempo = $('#tempo').val();
     setAudio(melodyAbc, chordAbc, melodicSound, tempo);
 }
-
-$(document).ready(function(){
-    $('#endless').change(function() {
-        $('#length').prop('disabled', $(this).prop('checked'));
-    });
-});
