@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/abcjs-audio.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>BGM ジェネレーター</title>
+</head>
+<body class="d-flex flex-column align-items-center justify-content-sm-around">
+    <header><h1>BGM ジェネレーター</h1></header>
+    <div>
+        <div class="my-4">
+            <label for="tempo" class="form-label">テンポ</label>
+            <input type="text" class="form-control w-50" id="tempo" value="115">
+        </div>
+        <div class="mb-4">
+            <label for="melodic-sound" class="form-label">音色</label>
+            <select name="melodic-sound" id="melodic-sound" class="form-select form-select-lg">
+                <option value="0">アコースティック・グランド・ピアノ</option>
+                <option value="4">エレクトリック・ピアノ1</option>
+                <option value="5">エレクトリック・ピアノ2</option>
+                <option value="21">アコーディオン</option>
+                <option value="24">アコースティック・ギター</option>
+                <option value="48">ストリング・アンサンブル</option>
+                <option value="80">リード（矩形波）</option>
+                <option value="82">リード（calliope 蒸気オルガン）</option>
+                <option value="88">パッド（ニュー・エイジ）</option>
+                <option value="106">三味線</option>
+                <option value="107">琴</option>
+            </select>
+            <!-- https://wineroses.hatenablog.com/entry/2024/01/03/152607 -->
+            <!-- https://ja.m.wikipedia.org/wiki/General_MIDI -->
+        </div>
+        <div class="mb-4">
+            <label for="length" class="form-label">長さ</label><br>
+            <input type="text" class="form-control w-50 d-inline me-2" id="length" value="10"><span>小節</span>
+        </div>
+        <div class="form-check mb-4 d-none">
+            <input class="form-check-input" type="checkbox" value="" id="endless">
+            <label class="form-check-label" for="endless">エンドレス</label>
+        </div>
+    </div>
+    
+    <button onclick="playMelody();" class="btn btn-dark btn-lg mb-5">音楽を生成</button>
+    <div id="score"></div>
+    <div id="play"></div>
+    <script type="text/javascript" src="./js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/abcjs-basic-min.js"></script>
+    <!-- <script type="text/javascript" src="./js/abcjs_basic_midi-min.js"></script> -->
+    <script type="text/javascript" src="./js/sound.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <!-- <script type="text/javascript" src="./js/test.js"></script> -->
+</body>
+</html>
