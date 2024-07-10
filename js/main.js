@@ -86,6 +86,7 @@ function playMelody(key=0) {
     setAudio(melodyAbc, chordAbc, melodicSound, tempo);
 }
 
+// 入力欄を半角数字にして、範囲外ならデフォルトの値をセット
 function confirmInput() {
     const fullnums = '０１２３４５６７８９';
     const reFullnums = new RegExp('['+fullnums+']','g');
