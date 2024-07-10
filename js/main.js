@@ -54,6 +54,7 @@ function setAudio(abc, chord, melodicSound=0, tempo=100) {
 }
 
 function playMelody(key=0) {
+    confirmInput();
     const barNum = $('#length').val() - 0;
     const melody = new Melody(null, key);
     const chordProgression = new ChordProgression(
@@ -85,12 +86,32 @@ function playMelody(key=0) {
     setAudio(melodyAbc, chordAbc, melodicSound, tempo);
 }
 
+function confirmInput() {
+    const fullnums = '０１２３４５６７８９';
+    const reFullnums = new RegExp('['+fullnums+']','g');
+    const toHalfnums = text => text.replace(reFullnums, m=>fullnums.indexOf(m));
+
+    let tempo = toHalfnums($('#tempo').val()).replace(/[^0-9]/g, '') - 0;
+    if(tempo <= 0) tempo = 100;
+
+    $('#tempo').val(tempo);
+
+    let length = toHalfnums($('#length').val()).replace(/[^0-9]/g, '') - 0;
+    if(length < 3) length = 3;
+
+    $('#length').val(length);
+}
+
 $(document).ready(function(){
     $('#tempo').on('click', function() {
         $(this).select();
     });
 
+    $('#tempo').blur(confirmInput);
+
     $('#length').on('click', function() {
         $(this).select();
     });
+
+    $('#length').blur(confirmInput);
 });
