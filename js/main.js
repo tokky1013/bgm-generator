@@ -37,6 +37,7 @@ function setAudio(abc, chord, melodicSound=0, tempo=100) {
     const visualObj = ABCJS.renderAbc('score', abcString);
     $(`#score`).css('display', 'none');
     // $(`#score`).css('overflow-x', 'scroll');
+    // $(`#score`).css('width', '100%');
 
     // MIDIの生成
     const midiBuffer = new ABCJS.synth.CreateSynth();
